@@ -1,0 +1,19 @@
+#[SETTINGS]
+window_len: 60
+step_size: 30
+
+# [DATA]
+dataset: '1063'
+timesplit: '1m'
+data_path: '/home/cc/clio/runs/raw/tencent/characteristic/1063/1m/characteristic.csv'
+features: ['iops', 'read_write_ratio', 'write_size_ratio', 'bandwidth', 'read_count', 'write_count']
+preprocess: 'fft' # 'mean', 'none', 'fft'
+
+# [Model]
+models: ['ks', 'cvm', 'js', 'kl']
+top_k: 10
+p_val_threshold: 0.005
+
+# [Output]
+output_path: './output'
+save_plot: False
