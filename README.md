@@ -3,6 +3,12 @@
 ## Overview
 Drift, including both data drift and concept drift will affect the model's performance over time.  This project focuses specifically on data drift (feature drift), aiming to design a pipeline for evaluating drift detection algorithms on system traces. The project is divided into two main parts: dataset construction and algorithm benchmarking.
 
+<p align="center">
+  <img src="pics/image_drift.png" alt="Image 1" width="45%" />
+  <img src="pics/image_nondrift.png" alt="Image 2" width="45%" />
+  <p align="center"><sub>a) Left: timestamps where drift happens b) Right: timestamps where no drift happens</sub></p>
+</p>
+
 **[PART 1: Dataset Construction]**
 I constructed a data drift dataset using the Tencent I/O block trace, which includes both drift and non-drift labels. The raw traces were processed into timestamps with various features. To detect where drift happens and construct the datasets, I employed several offline drift detection algorithms, including Kolmogorov-Smirnov, Cramer-von Mises, KL-Divergence, and Jensen-Shannon Distance. A voting strategy, along with post-processing techniques, was applied to build and clean the datasets. Given that trace data often contains noise, which can affect the accuracy of drift detection, additional preprocessing steps such as fourier transform and moving average were taken to mitigate this issue.
 
